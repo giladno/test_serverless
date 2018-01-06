@@ -4,8 +4,14 @@ plugins:
 provider:
   name: aws
   runtime: nodejs6.10
+  memorySize: 128
+  timeout: 10
+  stage: dev
+  region: us-east-1
 functions:
   hello:
     handler: handler.hello
     events:
-      - http: GET hello
+      - http:
+          path: hello
+          method: get
